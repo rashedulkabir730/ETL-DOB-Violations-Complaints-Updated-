@@ -2,19 +2,18 @@
 
 <img width="813" alt="Screenshot 2024-10-08 at 6 00 32 PM" src="https://github.com/user-attachments/assets/54475e3b-1edd-4425-a2e4-b39d34de314b">
 
-
 Project Overview:
 
-I revamped a prior project to address performance issues in a Streamlit web app by integrating data engineering practices, specifically leveraging AWS services and Apache Airflow for orchestration.
+I enhanced a previous project by addressing performance bottlenecks in a Streamlit web app through the integration of data engineering best practices, leveraging AWS services, Apache Airflow for orchestration, and caching mechanisms to optimize application performance.
 
-Data Extraction: Using Python, I extracted datasets from two distinct APIs provided by NYC Open Data—one containing complaints data and the other containing violations data. Due to the large dataset size, I implemented chunking methods to handle the data efficiently and loaded the raw data into two separate S3 buckets for storage and future processing.
+Data Extraction: Using Python, I extracted datasets from two NYC Open Data APIs—one for complaints data and the other for violations data. To efficiently handle the large volume of data, I utilized chunking techniques and stored the raw data in separate AWS S3 buckets.
 
-Data Transformation: Utilizing Pandas for data transformation, I performed a variety of operations, such as data type conversions, column clean-up (e.g., dropping unnecessary fields), column concatenation, and splitting. The transformed datasets were then uploaded to separate S3 buckets to streamline access for downstream tasks, including visualization.
+Data Transformation: I used Pandas for data transformation, which involved data type conversions, dropping unnecessary columns, concatenating and splitting columns. The transformed data was loaded into new S3 buckets, ensuring structured and clean datasets were ready for subsequent processing and analysis.
 
-Data Loading: Once transformation was complete, the processed data was loaded into new S3 buckets, ensuring a clean, structured dataset was available for further analysis and visualization.
+Data Loading: The processed and cleaned datasets were uploaded to additional S3 buckets to support downstream tasks, including data visualization and analysis.
+Further Data Cleaning: I incorporated a separate CSV file containing complaint descriptions into the existing datasets, cleaning and transforming the data to align with the primary datasets. In future iterations, this additional transformation step will be automated within the DAG managed by Apache Airflow.
 
-Further Data Cleaning: I integrated an additional CSV dataset containing complaint descriptions, which required further transformation to align with the primary datasets. This step, along with additional column clean-ups, will be incorporated into future iterations of the DAG to fully automate the process within Apache Airflow.
+Visualization & Performance Optimization: I developed an interactive dashboard using Streamlit to visualize complaints and violations over time, filtered by address. The visualizations included bar charts and descriptions of complaints and violations. To improve the performance of the app, I implemented caching mechanisms, reducing load times significantly by storing results of repeated computations and database queries. This optimization enabled faster rendering of visualizations when users interacted with the app.
 
-Visualization: Using Streamlit, I developed a dynamic dashboard for visualizing complaints and violations over time, filtered by address. The application included bar charts and displayed relevant descriptions for both complaints and violations, providing users with a comprehensive view of the data.
+Technologies used include AWS S3, EC2, Apache Airflow, Python, Pandas, Streamlit, and caching techniques. This project demonstrates my ability to build and optimize a scalable ETL pipeline, automate workflows using Airflow, and improve application performance through caching and cloud infrastructure.
 
-Key tools and technologies used in this project include AWS S3, EC2, Apache Airflow, Python, Pandas, and Streamlit, focusing on the ETL pipeline, data transformation, and automated workflows. This project showcased my ability to implement scalable data engineering solutions for real-world datasets and optimize application performance through cloud-based infrastructure
