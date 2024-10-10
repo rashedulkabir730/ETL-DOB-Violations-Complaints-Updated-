@@ -10,8 +10,8 @@ import plotly.express as px
 s3_client = boto3.client(
     service_name='s3',
     region_name='us-east-1',
-    aws_access_key_id='XXX',  # Ensure this is secure
-    aws_secret_access_key='XXX'  # Ensure this is secure
+    aws_access_key_id=ACCESS_KEY,  # Ensure this is secure
+    aws_secret_access_key=SECRET_ACESS_KEY  # Ensure this is secure
 )
 
 # Define the file and bucket
